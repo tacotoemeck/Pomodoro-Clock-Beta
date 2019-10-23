@@ -121,8 +121,9 @@ function timer(seconds) {
             displayLog() 
             clearInterval(countdown);
             // autoPlayToggleSwitch()
-            checkForAutoPlay()
-            completedAndOrSkippedSessionCouneter()
+            soundEffectSwitch();
+            checkForAutoPlay();
+            completedAndOrSkippedSessionCouneter();
             return
         }
         seconds--;
@@ -190,7 +191,8 @@ function startSession() {
     clearInterval(countdown);
     timer(seconds);
     hidePlayPause();
-    checkForAutoPlay()   
+    checkForAutoPlay();
+    soundEffectSwitch()  
 
 };
 
@@ -270,7 +272,7 @@ function showSettingMenu() {
     } else {
         elementsDisplay.style.display = "flex";
         // settingsElementDisplay.style.display = "none"; 
-        // settingsElementDisplay.classList.toggle('settings-active')
+        settingsElementDisplay.classList.toggle('settings-active')
         settingMenuONorOFF = false;
 
     }
@@ -332,6 +334,7 @@ function setNumberOfSessionsFunc(e) {
 
 function autoPlay() {
     if ( finishedCycle == true && currentCycle == "WORK") {
+        soundEffect()
         shortBreak();
         pause = false;
         hidePlayPause();
@@ -339,6 +342,7 @@ function autoPlay() {
         displayLog();
     }
     else if ( finishedCycle == true && currentCycle == "SHORT") {
+        soundEffect()
         workSession();
         pause = false;
         hidePlayPause();
@@ -346,6 +350,7 @@ function autoPlay() {
         displayLog();
     }
     else if ( fullCycleCounterDisplay == fullCycleCounterTotalDisplay ) {
+        soundEffect()
         longBreak();
         displayLog();
     }
@@ -370,6 +375,7 @@ function completedAndOrSkippedSessionCouneter() {
         
     }
 }
+
 
 // reset
 
@@ -410,6 +416,7 @@ resetButton.addEventListener('click', resetAll)
 function skipToNext() {
 
         finishedCycle = true;
+        soundEffect()
         logSession();
         hidePlayPause()
         displayLog()
@@ -468,9 +475,31 @@ function sessionFinished() {
  }
 };
 
-// add responsivness
+// SOUNDS
 
-// add social media tags
+
+const mySound = document.getElementById("myAudio"); 
+let soundSwitch = document.querySelector('#soundSwitch')
+let soundOn = false;
+
+function soundEffectSwitch() {
+    if (soundSwitch.checked == true ) {
+        soundOn = true;
+    } else {
+        soundOn = false;
+    }
+    }
+    
+
+function soundEffect() {
+if (soundOn == true) {
+mySound.play()
+}
+}
+
+
+
+
 
 workSession();
 displayLog();

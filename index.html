@@ -11,6 +11,10 @@
     <script src='displayMobile.js'></script>
 </head>
 <body>
+        <audio id="myAudio">
+                <source src="sounds/finished.wav" type="audio/ogg">
+                Your browser does not support the audio element.
+              </audio>
 
     <div class="container">
 
@@ -41,13 +45,23 @@
 
                 <h3 class="settingsSetup">ROUNDS: <span id="showValueRoundCounter"></span></h3>
                 <input id="numberOfSessionsCount" class="slider" type="range" name="newSessionsTotal" min="1" max="10" value="2">
-
+                
+                <div class="switches">
+                    <span>
+                <h3 class="settingsSetup">SOUND  <label class="switch">
+                        <input id ="soundSwitch" type="checkbox">
+                        <span class="sliderOnOff round"></span>
+                      </label>
+                    </h3>
+                </span>
+                <span>
                 <h3 class="settingsSetup">AUTO-PLAY  <label class="switch">
                         <input id ="autoPlaySwitch" type="checkbox">
                         <span class="sliderOnOff round"></span>
                       </label>
                     </h3>
-                
+                </span>
+                </div>
                 
                 
             </form>

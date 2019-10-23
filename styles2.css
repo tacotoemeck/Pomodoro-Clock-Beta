@@ -402,6 +402,7 @@ footer a:hover {
     color: white;
     display: inline-flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -411,8 +412,8 @@ footer a:hover {
     height: 10px;
 
     -webkit-box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
--moz-box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
-box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
+    box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
 }
 
 .settings-active {
@@ -466,15 +467,27 @@ box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
 
   .switch {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     width: 50px;
     height: 25px;
+    opacity: 0.7;
+    margin-left: 10px;
+    
+  }
+
+  .switch:hover {
+    opacity: 1;
   }
   
   .switch input { 
     opacity: 0;
     width: 0;
     height: 0;
+
+    -webkit-box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
+    box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
+    
   }
   
   .sliderOnOff {
@@ -487,6 +500,8 @@ box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
     background-color: #d3d3d3;
     -webkit-transition: .4s;
     transition: .4s;
+    
+    
   }
   
   .sliderOnOff:before {
@@ -498,10 +513,17 @@ box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
     background-color: #4CAF50;
     -webkit-transition: .4s;
     transition: .4s;
+    -webkit-box-shadow: 5px 5px 4px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 5px 5px 4px 0px rgba(0,0,0,0.32);
+    box-shadow: 5px 5px 4px 0px rgba(0,0,0,0.32);
   }
   
   input:checked + .sliderOnOff {
     background-color: #99b898;
+    -webkit-box-shadow: 5px 5px 4px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 5px 5px 4px 0px rgba(0,0,0,0.32);
+    box-shadow: 5px 5px 4px 0px rgba(0,0,0,0.32);
+
   }
   
   input:focus + .sliderOnOff {
@@ -515,6 +537,12 @@ box-shadow: inset -5px -5px 4px 0px rgba(0,0,0,0.32);
   }
   
   /* Rounded sliders */
+
+  .switches {
+      display: inline-flex;
+      justify-content: space-between;
+  }
+
   .sliderOnOff.round {
     border-radius: 20%;
   }
